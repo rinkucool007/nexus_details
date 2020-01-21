@@ -1,0 +1,22 @@
+mkdir /var/nexus && chown -R 200 /var/nexus
+docker run -d --restart=unless-stopped -p 8081:8081 --name nexus2 -v /var/nexus:/sonatype-work sonatype/nexus:oss
+xxxxxxxxxxxx
+docker exec -it xxxxxxxxxxxx /bin/bash
+
+mkdir /some/dir/nexus-data && chown -R 200 /some/dir/nexus-data
+docker run -d --restart=unless-stopped -p 8081:8081 --name nexus3 -v /var/nexus:/nexus-data sonatype/nexus3
+xxxxxxxxxxxx
+docker exec -it xxxxxxxxxxxx /bin/bash
+
+http://xxxxx:8081/nexus
+http://xxxxxxx:8081
+
+admin / admin123
+
+Reference :
+https://mincong.io/2018/08/04/maven-deploy-artifacts-to-nexus/
+https://support.sonatype.com/hc/en-us/articles/213465488-How-can-I-retrieve-a-snapshot-if-I-don-t-know-the-exact-filename-
+https://blog.sonatype.com/2010/01/how-to-backup-nexus-configuration-and-repository-artifacts/
+https://gist.github.com/DarthHater/a4f2738e3bd40d242db22633b59dfd63
+https://github.com/simpligility/maven-repository-tools/tree/master/maven-repository-provisioner
+https://github.com/dmpe/powershell/tree/e36bb6103b51eb9a51866cf8ec705ee7e687c3d5/Sonatype-Nexus2-to-3
